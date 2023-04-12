@@ -1,5 +1,5 @@
 import Canvas from "./canvas"
-// import Customizer from './pages/Customizer.jsx'
+import Customizer from './pages/Customizer.jsx'
 import Home from "./pages/home"
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="app transition-all ease-in">
       <Home/>
       <Canvas/>
-      {/* <Customizer/> */}
+      <Customizer/>
     </div>
   )
 }
