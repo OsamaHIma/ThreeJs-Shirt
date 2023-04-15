@@ -1,6 +1,6 @@
-import Canvas from "./canvas";
+import Canvas from "./canvas.jsx";
 import Customizer from "./pages/Customizer.jsx";
-import Home from "./pages/home";
+import Home from "./pages/home.jsx";
 import { Toaster } from "react-hot-toast";
 
 function App() {
