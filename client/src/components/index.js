@@ -2,6 +2,6 @@ import AIpicker from "./AIpicker";
 import ColorPicker from "./ColorPicker";
 import CustomBtn from "./CustomBtn";
 import FilePicker from "./FilePicker";
-import Tap from "./Tap";
+import Tab from "./Tab";
 
-export {Tap, FilePicker, ColorPicker, CustomBtn, AIpicker}
+export {Tab, FilePicker, ColorPicker, CustomBtn, AIpicker}

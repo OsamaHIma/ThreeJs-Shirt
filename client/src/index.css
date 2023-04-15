@@ -6,9 +6,13 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #222;
+  background-color: #1b1b1b;
   color: #f0f0f0;
 }
+
+/* ::-webkit-scrollbar{
+  width: 0;
+} */
 
 html {
   font-family: "Inter", sans-serif;
@@ -55,6 +59,15 @@ html {
 .aipicker-textarea {
   @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
 }
+textarea.aipicker-textarea::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 7px;
+}
+
+textarea.aipicker-textarea::-webkit-scrollbar {
+  width: 10px;
+ background-color: transparent;
+}
 
 .filepicker-container {
   @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
@@ -70,9 +83,9 @@ html {
 
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.07);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
