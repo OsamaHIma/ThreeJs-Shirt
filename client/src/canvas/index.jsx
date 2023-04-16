@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Canvas } from "@react-three/fiber";
 import { Center, Environment } from "@react-three/drei";
 
