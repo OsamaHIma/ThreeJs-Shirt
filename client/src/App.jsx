@@ -1,4 +1,4 @@
-import CanvasModal from "./canvas";
+import CanvasModal from "./canvas/index";
 import Customizer from "./pages/Customizer";
 import Home from "./pages/Home";
 import { Toaster } from "react-hot-toast";
