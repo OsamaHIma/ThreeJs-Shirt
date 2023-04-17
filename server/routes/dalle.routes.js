@@ -15,7 +15,6 @@ router.route("/").post(async (req, res) => {
       "https://stablediffusionapi.com/api/v3/text2img",
       {
         method: "POST",
-        mode:"no-cors",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Headers": "Content-Type",
