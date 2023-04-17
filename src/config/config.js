@@ -1,9 +1,9 @@
 const config = {
   development: {
-    backendUrl: "http://localhost:8080/api/v1/dalle",
+    backendUrl: "http://localhost:8080/generate/ai/image",
   },
   production: {
-    backendUrl: "https://threejs-shirt.vercel.app/api/v1/dalle",
+    backendUrl: "https://threejs-shirt.vercel.app/generate/ai/image",
   },
 };
 

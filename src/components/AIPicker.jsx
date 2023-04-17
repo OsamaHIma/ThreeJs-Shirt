@@ -1,6 +1,7 @@
 import React from "react";
 import CustomBtn from "./CustomBtn";
-// import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AIpicker = ({ prompt, setPrompt, generatingImg, handelSubmit }) => {
   return (

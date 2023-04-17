@@ -1,15 +1,21 @@
 import CanvasModal from "./canvas/index";
 import Customizer from "./pages/Customizer";
 import Home from "./pages/Home";
-import { Toaster } from "react-hot-toast";
-
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="app transition-all ease-in">
       <Home />
       <CanvasModal />
       <Customizer />
-      <Toaster />
+      <ToastContainer
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
     </div>
   );
 }

@@ -7,7 +7,8 @@ import { download } from "../assets";
 import { reader, downloadCanvasToImage } from "../config/helpers";
 import { FilterTabs, EditorTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   Tab,
@@ -31,49 +32,59 @@ const Customizer = () => {
   //   toast.loading("Generating img...");
   // }
   const handelSubmit = async (type) => {
-    if (!prompt) return alert("Please enter a prompt");
+    if (!prompt) return toast.error("Please enter a prompt");
     try {
       setGeneratingImg(true);
-      // const response = await fetch(config.development.backendUrl, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/josn",
-      //   },
-      //   body: JSON.stringify({ prompt }),
-      // });
-      // const data = response.json();
-      const bodyInfo = JSON.stringify({
-        key: "MvacquO8yYysljF05xxdW3WvRQVI8Ah7abvbFVcljYaFFN1X9bAdQDAf2v3L",
-        prompt:
-          "Cat on the moon",
-        negative_prompt:
-          "",
-        width: "512",
-        height: "512",
-        samples: "1",
-        num_inference_steps: "20",
-        seed: null,
-        guidance_scale: 7.5,
-        safety_checker: "yes",
-        webhook: null,
-        track_id: null,
-      });
-      const options = {
+      const response = await fetch(config.development.backendUrl, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-          'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': '*'
+          "Content-Type": "application/json",
         },
-      };
+        body: JSON.stringify({ prompt }),
+      });
 
-      const response = await axios.post(
-        "https://stablediffusionapi.com/api/v3/text2img",
-        bodyInfo,
-        options
-      );
+      // const response = await fetch(
+      //   "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "content-type": "application/json",
+      //     },
+      //     body: JSON.stringify({ inputs: "a flying Cat" }),
+      //   }
+      // )
+      // .then((res) => res.blob())
+      // .then((blob) => {
+      //   const tab = window.open((target = "_blank"));
+      //   tab.location.href = window.URL.createObjectURL(blob);
+      // });
+      // const response = await fetch(
+      //   "https://stablediffusionapi.com/api/v3/text2img",
+      //   {
+      //     method: "POST",
+      //     mode:"no-cors",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       "Access-Control-Allow-Headers": "Content-Type",
+      //     },
+      //     body: JSON.stringify({
+      //       key: "MvacquO8yYysljF05xxdW3WvRQVI8Ah7abvbFVcljYaFFN1X9bAdQDAf2v3L",
+      //       prompt: "cat on the moon",
+      //       negative_prompt: "",
+      //       width: "512",
+      //       height: "512",
+      //       samples: "1",
+      //       num_inference_steps: "20",
+      //       safety_checker: "no",
+      //       enhance_prompt: "yes",
+      //       seed: null,
+      //       guidance_scale: 7.5,
+      //       webhook: null,
+      //       track_id: null,
+      //     }),
+      //   }
+      // );
 
-      const data = response.data;
       console.log(response);
       // handelDecals(type, `data:image/png;base64,${data.photo}`);
       // const response = await deepai.callStandardApi("logo-generator", {
@@ -81,7 +92,8 @@ const Customizer = () => {
       // });
       // console.log(response);
     } catch (error) {
-      return alert(error);
+      toast.error(error);
+      setGeneratingImg(false);
     } finally {
       setGeneratingImg(false);
       setActiveEditorTab("");
