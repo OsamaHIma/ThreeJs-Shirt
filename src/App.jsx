@@ -5,9 +5,6 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="app transition-all ease-in">
-      <Home />
-      <CanvasModal />
-      <Customizer />
       <ToastContainer
           closeOnClick
           rtl={false}
@@ -16,6 +13,9 @@ function App() {
           pauseOnHover
           theme="dark"
         />
+      <Home />
+      <CanvasModal />
+      <Customizer />
     </div>
   );
 }

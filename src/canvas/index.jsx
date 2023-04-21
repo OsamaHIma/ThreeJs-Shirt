@@ -1,10 +1,11 @@
-
 import { Canvas } from "@react-three/fiber";
 import { Center, Environment } from "@react-three/drei";
 
 import Shirt from "./Shirt";
 import CameraRig from "./CameraRig";
 import BackDrop from "./BackDrop";
+import { Suspense } from "react";
+import { CanvasLoader } from "../components";
 
 const CanvasModal = () => {
   return (
@@ -14,14 +15,16 @@ const CanvasModal = () => {
       gl={{ preserveDrawingBuffer: true }}
       className="w-full max-w-full h-full transition-all ease-in"
     >
-      <ambientLight intensity={0.5} />
-      <Environment preset="city" />
-      <CameraRig>
-        <BackDrop />
-        <Center>
-          <Shirt />
-        </Center>
-      </CameraRig>
+      <Suspense fallback={<CanvasLoader />}>
+        <ambientLight intensity={0.5} />
+        <Environment preset="city" />
+        <CameraRig>
+          <BackDrop />
+          <Center>
+            <Shirt />
+          </Center>
+        </CameraRig>
+      </Suspense>
     </Canvas>
   );
 };
