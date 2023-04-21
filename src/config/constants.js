@@ -11,11 +11,11 @@ export const EditorTabs = [
     icon: fileIcon,
     title:"Choose an image"
   },
-  {
-    name: "aipicker",
-    icon: ai,
-    title:"Generate an image using AI"
-  },
+  // {
+  //   name: "aipicker",
+  //   icon: ai,
+  //   title:"Generate an image using AI"
+  // },
 ];
 
 export const FilterTabs = [

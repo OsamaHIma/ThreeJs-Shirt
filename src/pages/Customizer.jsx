@@ -106,15 +106,15 @@ const Customizer = () => {
         return <ColorPicker />;
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
-      case "aipicker":
-        return (
-          <AIpicker
-            prompt={prompt}
-            setPrompt={setPrompt}
-            generatingImg={generatingImg}
-            handelSubmit={handelSubmit}
-          />
-        );
+      // case "aipicker":
+      //   return (
+      //     <AIpicker
+      //       prompt={prompt}
+      //       setPrompt={setPrompt}
+      //       generatingImg={generatingImg}
+      //       handelSubmit={handelSubmit}
+      //     />
+      //   );
 
       default:
         return null;
